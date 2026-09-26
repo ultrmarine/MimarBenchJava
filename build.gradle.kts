@@ -15,6 +15,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("com.github.oshi:oshi-core:6.9.2") //это добавляет сам осхи
+    implementation("org.slf4j:slf4j-simple:2.0.17") //это чтобы осхи не выдавал ошибку/не ныл. так называемый "интерфейс для логирования осхи"
 }
 
 javafx {
