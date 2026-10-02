@@ -21,9 +21,9 @@ public class TaskManagerApp extends Application {
 
         System.out.println(controller);
 
-        Scene scene = new Scene(root, 1500,900); //размер окна
+        Scene scene = new Scene(root, 950,650); //размер окна - 1 eto ширина,а 2 это высота окна
 
-        stage.setTitle("Martin testit");
+        stage.setTitle("MimarBench");
         stage.setScene(scene);
         stage.show();
     }
