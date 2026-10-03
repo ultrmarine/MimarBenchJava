@@ -1,6 +1,5 @@
 package com.taskmanager.model.hardware;
 import com.taskmanager.core.oshi.OshiSystem;
-import oshi.SystemInfo;
 import oshi.hardware.GraphicsCard;
 
 public class GpuMetrics {

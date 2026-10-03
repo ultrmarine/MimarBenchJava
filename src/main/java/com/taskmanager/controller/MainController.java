@@ -1,12 +1,20 @@
 package com.taskmanager.controller;
 
+import com.taskmanager.model.hardware.CpuMetrics;
+import com.taskmanager.model.hardware.GpuMetrics;
+import com.taskmanager.model.hardware.MemoryMetrics;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 public class MainController {
+    private CpuMetrics cpuMetrics = new CpuMetrics(); // обращаемся к файлам с функциями вывода данных и бла бла бла
+    private GpuMetrics gpuMetrics = new GpuMetrics();
+    private MemoryMetrics memoryMetrics = new MemoryMetrics();
+
     // название переменных и есть их айдишник,айдишник прописываю в scenebuilder
     @FXML
     private TabPane tabPane;
@@ -18,8 +26,9 @@ public class MainController {
     private Tab specs;
 
     // да названия длинноваты чёта,но так как название = айди,я не мог по другому их сделать
+    // Это все таблицы в processes,я присвоил им айдишники,чтобы потом в названиях писать процент их нагрузки(украл фичу из Диспетчера задач)
     @FXML
-    private TableColumn processColumnName; // Это все таблицы в processes
+    private TableColumn processColumnName;
     @FXML
     private TableColumn processColumnStatus;
     @FXML
@@ -31,8 +40,9 @@ public class MainController {
     @FXML
     private TableColumn processColumnNetwork;
 
+    // Это всё правые экраны в performance,должны быть подключены к кнопочкам
     @FXML
-    private StackPane performanceStackPaneCpu; // Это всё правые экраны в performance,должны быть подключены к кнопочкам
+    private StackPane performanceStackPaneCpu;
     @FXML
     private StackPane performanceStackPaneMemory;
     @FXML
@@ -42,10 +52,11 @@ public class MainController {
     @FXML
     private StackPane performanceStackPaneGpu;
 
+    // Это все кнопочки в performance
     @FXML
     private ToggleGroup performanceButton;
     @FXML
-    private ToggleButton performanceButtonCpu; // Это все кнопочки в performance
+    private ToggleButton performanceButtonCpu;
     @FXML
     private ToggleButton performanceButtonMemory;
     @FXML
@@ -54,6 +65,29 @@ public class MainController {
     private ToggleButton performanceButtonEthernet;
     @FXML
     private ToggleButton performanceButtonGpu;
+
+    // тут начинается обращение к PC Specs окну
+    //данные в окошке CPU
+    @FXML
+    private Label specsCpuName;
+    @FXML
+    private Label specsCpuCores;
+
+    //данные в окошке GPU
+    @FXML
+    private Label specsGpuName;
+    @FXML
+    private Label specsGpuVendor;
+    @FXML
+    private Label specsGpuVram;
+
+    //данные в окошке Memory
+    @FXML
+    private Label specsMemoryTotal;
+    @FXML
+    private Label specsMemoryInfo;
+
+
 
     @FXML
     public void initialize() {
@@ -68,7 +102,18 @@ public class MainController {
             }
         });
 
-        processColumnName.setText("Name");
+        specsCpuName.setText("Processor name: " + cpuMetrics.getName());
+        specsCpuCores.setText("Number of physical cores: " + String.valueOf(cpuMetrics.getPhysicalCores()));
+
+        specsGpuName.setText("Processor name: " + gpuMetrics.getName());
+        specsGpuVendor.setText("Processor Vendor: " + gpuMetrics.getVendor());
+        specsGpuVram.setText("Processor Vram: " + gpuMetrics.getVram() + "G");
+
+        specsMemoryTotal.setText("Memory Total: " + String.valueOf(memoryMetrics.getTotal()));
+        //Нужно думать как разбивать всю инфу о плашках,в теории можно прямо в функции выводить всё по отдельности
+//        Label label = new Label("" + String.valueOf(memoryMetrics.getPhysMem()));
+//        specsMemoryInfo.getChildren().add(label);
+//        processColumnName.setText("Name");
     }
 
     @FXML

@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="650.0" prefWidth="950.0" stylesheets="@../css/DarkTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskmanager.controller.MainController">
+<BorderPane prefHeight="650.0" prefWidth="950.0" stylesheets="@../css/DarkTheme.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskmanager.controller.MainController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -144,7 +144,8 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Label layoutX="14.0" layoutY="26.0" text="label CPU " />
+                                          <Label fx:id="specsCpuName" layoutX="14.0" layoutY="14.0" text="Processor name" />
+                                          <Label fx:id="specsCpuCores" layoutX="14.0" layoutY="42.0" text="Cores" />
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -153,7 +154,9 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Label text="label GPU" />
+                                          <Label fx:id="specsGpuName" layoutX="14.0" layoutY="14.0" text="name" />
+                                          <Label fx:id="specsGpuVendor" layoutX="14.0" layoutY="38.0" text="vendor" />
+                                          <Label fx:id="specsGpuVram" layoutX="14.0" layoutY="62.0" text="vram" />
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -162,7 +165,8 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Label text="label memory" />
+                                          <Label fx:id="specsMemoryTotal" layoutX="14.0" layoutY="14.0" text="total ram" />
+                                          <Label fx:id="specsMemoryInfo" layoutX="14.0" layoutY="41.0" prefHeight="102.0" prefWidth="146.0" text="ram info" />
                                        </children>
                                     </AnchorPane>
                               </content>

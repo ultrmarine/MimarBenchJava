@@ -1,6 +1,5 @@
 package com.taskmanager.model.hardware;
 import com.taskmanager.core.oshi.OshiSystem;
-import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 
 public class CpuMetrics {
@@ -13,7 +12,6 @@ public class CpuMetrics {
     public int getPhysicalCores() {     //физ ядра
         return processor.getPhysicalProcessorCount();
     }
-
     public double[] getCurrentFreq() {        //текущая частота/частоты
         long[] list =  processor.getCurrentFreq();
 
