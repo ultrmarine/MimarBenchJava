@@ -1,10 +1,10 @@
 package com.taskmanager.model.hardware;
+import com.taskmanager.core.oshi.OshiSystem;
 import oshi.SystemInfo;
 import oshi.hardware.NetworkIF;
 
 public class NetworkMetrics {
-    SystemInfo systemInfo = new SystemInfo();
-    NetworkIF internet = systemInfo.getHardware().getNetworkIFs().get(0);
+    NetworkIF internet = OshiSystem.systemInfo.getHardware().getNetworkIFs().get(0);
 
     public String getName(){
         return internet.getName();

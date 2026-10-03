@@ -1,11 +1,10 @@
 package com.taskmanager.model.hardware;
+import com.taskmanager.core.oshi.OshiSystem;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 
 public class CpuMetrics {
-
-    SystemInfo systemInfo = new SystemInfo();   //инфо о пеке
-    CentralProcessor processor = systemInfo.getHardware().getProcessor();   //определяем процесар
+    CentralProcessor processor = OshiSystem.systemInfo.getHardware().getProcessor();   //определяем процесар
 
     public String getName() {
         return processor.getProcessorIdentifier().getName();

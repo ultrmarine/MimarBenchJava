@@ -1,11 +1,10 @@
 package com.taskmanager.model.hardware;
+import com.taskmanager.core.oshi.OshiSystem;
 import oshi.SystemInfo;
 import oshi.hardware.GraphicsCard;
 
 public class GpuMetrics {
-
-    SystemInfo systemInfo = new SystemInfo();   //инфо о пеке
-    GraphicsCard gpu = systemInfo.getHardware().getGraphicsCards().get(0);   //определяем видюху
+    GraphicsCard gpu = OshiSystem.systemInfo.getHardware().getGraphicsCards().get(0);   //определяем видюху
 
     public String getName() {
         return gpu.getName();

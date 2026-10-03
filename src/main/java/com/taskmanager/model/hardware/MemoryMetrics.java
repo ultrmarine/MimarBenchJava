@@ -1,13 +1,12 @@
 package com.taskmanager.model.hardware;
+import com.taskmanager.core.oshi.OshiSystem;
 import oshi.SystemInfo;
 import oshi.hardware.GlobalMemory;
 
 import java.util.List;
 
 public class MemoryMetrics {
-
-    SystemInfo systemInfo = new SystemInfo();
-    GlobalMemory ram = systemInfo.getHardware().getMemory();
+    GlobalMemory ram = OshiSystem.systemInfo.getHardware().getMemory();
 
     public long getTotal(){
         return ((ram.getTotal()/1000000000)-2);
